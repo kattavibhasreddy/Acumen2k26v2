@@ -49,7 +49,8 @@ const HeroParticles = () => {
 
       // Adjust particles to perfectly match the internal HTML flexbox text rendering difference
       const particleShiftX = 2;  // Shift particles right by 2px
-      const particleShiftY = 12; // Shift particles down by 12px
+      // Use a larger offset on mobile because font baseline differs at mobile font sizes
+      const particleShiftY = mobileFlag ? 22 : 12; 
 
       // Convert mapping for orthographic space (origin is screen center)
       const orthoX = cx - w / 2 + particleShiftX;
@@ -111,7 +112,7 @@ const HeroParticles = () => {
       const count = pts.length;
 
       // Make cubes perfectly pixel sized for a seamless blend
-      const particleScale = mobileFlag ? 1.5 : 1.0;
+      const particleScale = mobileFlag ? 0.8 : 1.0;
       const geometry = new THREE.BoxGeometry(particleScale, particleScale, particleScale);
       const material = new THREE.MeshBasicMaterial({ color: '#FFD600' });
       mesh = new THREE.InstancedMesh(geometry, material, count);
@@ -250,7 +251,7 @@ const HeroParticles = () => {
             margin: 0,
             fontFamily: 'var(--font-display)',
             fontWeight: 900,
-            fontSize: 'clamp(3rem, 9vw, 8rem)',
+            fontSize: isMobile ? 'clamp(4.5rem, 14vw, 8rem)' : 'clamp(3rem, 9vw, 8rem)',
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             color: '#FFD600',
