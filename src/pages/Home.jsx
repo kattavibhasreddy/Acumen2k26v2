@@ -286,12 +286,8 @@ export default function Home() {
           </h2>
         </div>
 
-        {/* Anti-Scroll-Trap Wrapper: Increased height to allow a larger viewing area */}
-        <div style={{
-          width: '100%',
-          height: 'clamp(400px, 60vh, 750px)',
-          position: 'relative'
-        }}>
+        {/* Anti-Scroll-Trap Wrapper: Perfect square on mobile, sweeping height on desktop */}
+        <div className="infinite-menu-wrapper">
           <InfiniteMenu items={pastFestImages} scale={1.0} />
         </div>
       </section>
