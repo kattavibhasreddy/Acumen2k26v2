@@ -648,6 +648,16 @@ class InfiniteGridMenu {
             const img = new Image();
             img.crossOrigin = 'anonymous';
             img.onload = () => resolve(img);
+            img.onerror = () => {
+              // Graceful fallback for CORS or 404 image errors so Promise.all resolves
+              const fallbackCanvas = document.createElement('canvas');
+              fallbackCanvas.width = 512;
+              fallbackCanvas.height = 512;
+              const ctx = fallbackCanvas.getContext('2d');
+              ctx.fillStyle = '#111';
+              ctx.fillRect(0, 0, 512, 512);
+              resolve(fallbackCanvas);
+            };
             img.src = item.image;
           })
       )
@@ -903,10 +913,6 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
           <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>{activeItem.title}</h2>
 
           <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
-
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-            <p className="action-button-icon">&#x2197;</p>
-          </div>
         </>
       )}
     </div>

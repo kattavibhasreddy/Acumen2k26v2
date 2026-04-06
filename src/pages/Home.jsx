@@ -22,11 +22,11 @@ const coordinators = [
 ]
 
 const pastFestImages = [
-  { image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=900&auto=format&fit=crop', link: '/events', title: 'HACKATHONS', description: '24-hour intense coding sprints and development.' },
-  { image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop', link: '/events', title: 'TECH EXPO', description: 'Showcasing brilliant student hardware and software.' },
-  { image: 'https://images.unsplash.com/photo-1531297172867-11dbee1281db?q=80&w=900&auto=format&fit=crop', link: '/events', title: 'ROBOTICS', description: 'Autonomous arenas and intense bot battles.' },
-  { image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=900&auto=format&fit=crop', link: '/events', title: 'WORKSHOPS', description: 'Learning from leading industry experts.' },
-  { image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900&auto=format&fit=crop', link: '/events', title: 'GAMING ZONE', description: 'E-Sports, LAN parties, and casual gaming.' },
+  { image: 'https://picsum.photos/seed/hackathon/900/900', link: '/events', title: 'HACKATHONS', description: '24-hour intense coding sprints and development.' },
+  { image: 'https://picsum.photos/seed/expo/900/900', link: '/events', title: 'TECH EXPO', description: 'Showcasing brilliant student hardware and software.' },
+  { image: 'https://picsum.photos/seed/robotics/900/900', link: '/events', title: 'ROBOTICS', description: 'Autonomous arenas and intense bot battles.' },
+  { image: 'https://picsum.photos/seed/workshop/900/900', link: '/events', title: 'WORKSHOPS', description: 'Learning from leading industry experts.' },
+  { image: 'https://picsum.photos/seed/gaming/900/900', link: '/events', title: 'GAMING ZONE', description: 'E-Sports, LAN parties, and casual gaming.' },
 ]
 
 
@@ -286,10 +286,10 @@ export default function Home() {
           </h2>
         </div>
 
-        {/* Anti-Scroll-Trap Wrapper: Small height on mobile, sweeping height on desktop */}
+        {/* Anti-Scroll-Trap Wrapper: Increased height to allow a larger viewing area */}
         <div style={{
           width: '100%',
-          height: 'clamp(300px, 40vh, 550px)',
+          height: 'clamp(400px, 60vh, 750px)',
           position: 'relative'
         }}>
           <InfiniteMenu items={pastFestImages} scale={1.0} />
