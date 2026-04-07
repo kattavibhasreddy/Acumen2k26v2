@@ -44,10 +44,11 @@ const HeroParticles = () => {
       const exactFontSize = parseFloat(computedStyle.fontSize);
       const fontFam = computedStyle.fontFamily; // Usually: "Space Grotesk", sans-serif
 
+      const fontWeight = computedStyle.fontWeight;
       // CRITICAL: Force the browser to aggressively load this specific weight/family into the canvas context
       // before taking our snapshot, otherwise iOS Safari/Mobile defaults to Arial and ruins the particle layout!
       try {
-        await document.fonts.load(`900 ${exactFontSize}px ${fontFam}`);
+        await document.fonts.load(`${fontWeight} ${exactFontSize}px ${fontFam}`);
       } catch (e) { }
 
       // Center of the text
@@ -253,7 +254,7 @@ const HeroParticles = () => {
             justifyContent: 'center',
             margin: 0,
             fontFamily: "'Villagers', var(--font-display)",
-            fontWeight: 900,
+            fontWeight: 400,
             // Since 'ACUMEN' is the longest line now instead of 'ACUMEN IT', we can make the relative size much larger
             fontSize: isMobile ? 'clamp(3rem, 18vw, 8rem)' : 'clamp(3.5rem, 10vw, 8rem)',
             lineHeight: 1.05,

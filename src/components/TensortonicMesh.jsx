@@ -58,9 +58,9 @@ const TerrainPlane = () => {
   });
 
   return (
-    <mesh ref={meshRef} material={material} rotation={[-Math.PI / 2.5, 0, 0]} position={[0, -20, -50]}>
-      {/* 200x200 grid with 100 segments to create highly detailed topographic squares */}
-      <planeGeometry args={[250, 250, 80, 80]} />
+    <mesh ref={meshRef} material={material} rotation={[-Math.PI / 2.15, 0, 0]} position={[0, -50, -60]}>
+      {/* 250x250 grid with 80 segments to create highly detailed topographic squares */}
+      <planeGeometry args={[300, 300, 100, 100]} />
     </mesh>
   );
 };
