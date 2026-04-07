@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 const EVENTS_LIST = [
@@ -19,6 +19,9 @@ const EVENTS_LIST = [
   { id: 'event-18', title: 'GEO GUESSR', price: '₹50', tag: 'KNOWLEDGE' },
   { id: 'event-19', title: 'PIXEL ART', price: '₹30', tag: 'CREATIVE' },
 ]
+
+
+
 
 const inputStyle = (error) => ({
   width: '100%',
@@ -54,10 +57,23 @@ function FormField({ id, label, error, children, required }) {
 }
 
 export default function Register() {
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm()
+  const [searchParams] = useSearchParams();
+  const eventFromUrl = searchParams.get('event');
+
+  const { register, handleSubmit, setValue, formState: { errors, isSubmitting } } = useForm({
+    defaultValues: {
+      selectedEvents: []
+    }
+  })
+  
   const [submitted, setSubmitted] = useState(false)
 
-  useEffect(() => { window.scrollTo(0, 0) }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    if (eventFromUrl) {
+      setValue('selectedEvents', [eventFromUrl]);
+    }
+  }, [eventFromUrl, setValue])
 
   const onSubmit = async (data) => {
     await new Promise(r => setTimeout(r, 2000))
@@ -179,17 +195,32 @@ export default function Register() {
             padding: '2.5rem',
             background: '#0d0d0d',
           }}>
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              color: '#555',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: '2rem',
-              borderBottom: '1px solid #1a1a1a',
-              paddingBottom: '1rem',
-            }}>// PARTICIPANT DETAILS</p>
-
+<div style={{
+  position: 'relative',
+  marginBottom: '2.5rem',
+  paddingLeft: '1.5rem',
+}}>
+  {/* Vertical Accent Line */}
+  <div style={{
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: '1px',
+    background: 'linear-gradient(to bottom, #FFD600, transparent)'
+  }} />
+  
+  <h2 style={{
+    fontFamily: 'var(--font-display)',
+    fontSize: '1.5rem',
+    color: '#F5F5F0',
+    textTransform: 'uppercase',
+    margin: '0.5rem 0 0 0',
+    letterSpacing: '-0.02em'
+  }}>
+    PARTICIPANT DETAILS
+  </h2>
+</div>
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -206,15 +237,23 @@ export default function Register() {
               </FormField>
 
               <FormField id="email" label="Email Address" error={errors.email} required>
-                <input
-                  {...register('email', { required: 'Required' })}
-                  type="email"
-                  placeholder="YOUR@EMAIL.COM"
-                  style={inputStyle(errors.email)}
-                  onFocus={e => e.target.style.borderColor = '#FFD600'}
-                  onBlur={e => e.target.style.borderColor = errors.email ? '#FF6B35' : '#3D3D3D'}
-                />
-              </FormField>
+  <input
+    {...register('email', { 
+      required: 'Email is required',
+      pattern: {
+        // Standard RFC 5322 compliant regex for emails
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: "Invalid email format (e.g., name@domain.com)"
+      }
+    })}
+    type="email"
+    placeholder="YOUR@EMAIL.COM"
+    style={inputStyle(errors.email)}
+    onFocus={e => e.target.style.borderColor = '#FFD600'}
+    // Validation-aware blur: stays orange if there's an error, goes dark if clean
+    onBlur={e => e.target.style.borderColor = errors.email ? '#FF6B35' : '#3D3D3D'}
+  />
+</FormField>
 
               <FormField id="branch" label="Branch" error={errors.branch} required>
                 <input
@@ -250,14 +289,28 @@ export default function Register() {
               </FormField>
 
               <FormField id="rollNo" label="Roll Number" error={errors.rollNo} required>
-                <input
-                  {...register('rollNo', { required: 'Required' })}
-                  placeholder="E.G. 22NH1A..."
-                  style={inputStyle(errors.rollNo)}
-                  onFocus={e => e.target.style.borderColor = '#FFD600'}
-                  onBlur={e => e.target.style.borderColor = errors.rollNo ? '#FF6B35' : '#3D3D3D'}
-                />
-              </FormField>
+  <input
+    {...register('rollNo', { 
+      required: 'Roll Number is required',
+      pattern: {
+        // Regex Breakdown:
+        // ^\d{4} : Starts with 4 digits (1602)
+        // -      : Followed by a hyphen
+        // \d{2}  : 2 digits (24)
+        // -      : Hyphen
+        // \d{3}  : 3 digits (737)
+        // -      : Hyphen
+        // \d{3}$ : Ends with 3 digits (001)
+        value: /^\d{4}-\d{2}-\d{3}-\d{3}$/,
+        message: 'Required format: 1602-24-737-001'
+      }
+    })}
+    placeholder="1602-24-737-001"
+    style={inputStyle(errors.rollNo)}
+    onFocus={e => e.target.style.borderColor = '#FFD600'}
+    onBlur={e => e.target.style.borderColor = errors.rollNo ? '#FF6B35' : '#3D3D3D'}
+  />
+</FormField>
 
               <FormField id="college" label="College Name" error={errors.college} required>
                 <input
@@ -277,16 +330,32 @@ export default function Register() {
             padding: '2.5rem',
             background: '#0d0d0d',
           }}>
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              color: '#555',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: '2rem',
-              borderBottom: '1px solid #1a1a1a',
-              paddingBottom: '1rem',
-            }}>// SELECT EVENTS</p>
+            <div style={{
+  position: 'relative',
+  marginBottom: '2.5rem',
+  paddingLeft: '1.5rem',
+}}>
+  {/* Vertical Accent Line */}
+  <div style={{
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: '1px',
+    background: 'linear-gradient(to bottom, #FFD600, transparent)'
+  }} />
+  
+  <h2 style={{
+    fontFamily: 'var(--font-display)',
+    fontSize: '1.5rem',
+    color: '#F5F5F0',
+    textTransform: 'uppercase',
+    margin: '0.5rem 0 0 0',
+    letterSpacing: '-0.02em'
+  }}>
+    Select Events
+  </h2>
+</div>
 
             <div style={{
               display: 'grid',
