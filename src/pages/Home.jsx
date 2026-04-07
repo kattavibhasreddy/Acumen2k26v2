@@ -232,14 +232,18 @@ export default function Home() {
           color: '#F5F5F0',
           border: '1px solid #3D3D3D',
           padding: '0.4rem 1rem',
-          marginBottom: '3rem',
-          marginTop: '-3rem',
+          marginBottom: 'clamp(2rem, 5vh, 4rem)',
+          marginTop: 'clamp(-13rem, -20vh, -8rem)',
+          position: 'relative',
+          zIndex: 2,
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.75rem',
           textTransform: 'uppercase',
+          maxWidth: '90%',
+          justifyContent: 'center',
         }}>
-          <span style={{ width: '8px', height: '8px', background: '#FFD600', display: 'inline-block' }} />
+          <span style={{ width: '8px', height: '8px', background: '#FFD600', display: 'inline-block', flexShrink: 0 }} />
           VASAVI COLLEGE OF ENGINEERING(A) DEPARTMENT OF IT PRESENTS
         </div>
 
