@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CountdownTimer from '../components/CountdownTimer'
 import HeroParticles from '../components/HeroParticles'
 import InfiniteMenu from '../components/InfiniteMenu'
+import TensortonicMesh from '../components/TensortonicMesh'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -241,6 +242,9 @@ export default function Home() {
           <span style={{ width: '8px', height: '8px', background: '#FFD600', display: 'inline-block' }} />
           VASAVI COLLEGE OF ENGINEERING(A) DEPARTMENT OF IT PRESENTS
         </div>
+
+        {/* Tensortonic Wavy Background Mesh */}
+        <TensortonicMesh />
 
         {/* Floating Particles Text */}
         <HeroParticles />
