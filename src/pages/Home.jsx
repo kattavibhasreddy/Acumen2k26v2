@@ -269,80 +269,6 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          [02] // COUNTDOWN / HOW IT WORKS  
-      ══════════════════════════════════════════ */}
-      <section style={{ ...sectionStyle, background: '#111' }} id="schedule">
-        <div style={containerStyle}>
-          <h2 style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 700,
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
-            textTransform: 'uppercase',
-            marginBottom: '4rem',
-          }}>
-            ONE DAY.<br />INFINITE POSSIBILITIES.
-          </h2>
-
-          {/* Steps */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1px',
-            background: '#1a1a1a',
-            border: '1px solid #1a1a1a',
-            marginBottom: '4rem',
-          }}>
-            {[
-              { n: '01', title: 'REGISTER', sub: 'SECURE YOUR SLOT.', desc: 'Fill the form. Select your events. Show up on April 16.' },
-              { n: '02', title: 'COMPETE', sub: 'GIVE IT YOUR ALL.', desc: 'Every event. Every challenge. Technical. Creative. Competitive.' },
-              { n: '03', title: 'WIN', sub: 'CLAIM YOUR GLORY.', desc: 'Prizes. Certificates. Recognition. The best walk away rewarded.' },
-            ].map((step, i) => (
-              <div key={i} style={{
-                background: i === 1 ? '#111' : '#0A0A0A',
-                padding: '2.5rem',
-                border: i === 1 ? '1px solid #FFD600' : 'none',
-                margin: i === 1 ? '-1px' : '0',
-                position: 'relative',
-              }}>
-                <div style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '3rem',
-                  fontWeight: 700,
-                  color: '#FFD600',
-                  marginBottom: '1.5rem',
-                  lineHeight: 1,
-                }}>{step.n}</div>
-                <h3 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '1.5rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  color: '#F5F5F0',
-                  marginBottom: '0.25rem',
-                }}>{step.title}</h3>
-                <p style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.7rem',
-                  color: '#888',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  marginBottom: '1rem',
-                }}>{step.sub}</p>
-                <p style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.75rem',
-                  color: '#666',
-                  lineHeight: 1.7,
-                }}>{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
           [04] // TEAM
       ══════════════════════════════════════════ */}
       <section style={{ ...sectionStyle, background: '#0A0A0A' }} id="team">
@@ -408,6 +334,57 @@ export default function Home() {
     {coordinators.map((person, i) => {
       return <TeamCard key={i} person={person} />
     })}
+  </div>
+</div>
+
+{/* Sponsors Section */}
+<div style={{ marginBottom: '6rem' }}>
+  <div style={{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: '1rem', 
+    marginBottom: '3rem',
+    borderBottom: '1px solid #1a1a1a',
+    paddingBottom: '1rem' 
+  }}>
+    <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', textTransform: 'uppercase', color: '#FFF' }}>
+      Sponsors
+    </h2>
+  </div>
+
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '1.5rem'
+  }}>
+    {[1, 2, 3].map((num) => (
+      <div key={num} style={{
+        background: 'rgba(255, 255, 255, 0.02)',
+        border: '1px solid #1a1a1a',
+        padding: '3rem 2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 0.3s ease',
+      }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = '#FFD600'}
+      onMouseLeave={e => e.currentTarget.style.borderColor = '#1a1a1a'}
+      >
+        <img 
+          src={`https://picsum.photos/seed/sp${num}/400/200`} 
+          alt={`Sponsor ${num}`} 
+          style={{ 
+            maxWidth: '100%', 
+            height: 'auto', 
+            filter: 'brightness(1)', 
+            opacity: 1,
+            transition: 'all 0.4s ease' 
+          }}
+          onMouseEnter={e => { e.target.style.filter = 'none'; e.target.style.opacity = '1'; }}
+          onMouseLeave={e => { e.target.style.filter = 'brightness(1)'; e.target.style.opacity = '1'; }}
+        />
+      </div>
+    ))}
   </div>
 </div>
         </div>
