@@ -1,0 +1,27 @@
+.lanyard-wrapper {
+  width: 100%;
+  height: 100vh; /* Set to viewport height for Hero section */
+  position: relative;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+  overflow: hidden;
+  touch-action: none; /* Prevents page scroll while dragging card */
+}
+
+.lanyard-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.lanyard-wrapper {
+  cursor: grab;
+}
+
+.lanyard-wrapper:active {
+  cursor: grabbing;
+}
+
+/* Ensure no text selection while dragging */
+.lanyard-wrapper * {
+    user-select: none;
+}

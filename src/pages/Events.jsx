@@ -12,21 +12,21 @@ const EVENTS = [
 ];
 
 const ALL_EVENTS = [
-  { id: 'event-1', title: 'PAPER AND POSTER PRESENTATION', price: '₹100', tag: 'RESEARCH', desc: 'Present cutting-edge research to expert panelists.' },
-  { id: 'event-2', title: 'WEBATHON', price: '₹150', tag: 'WEB DEV', desc: 'Build a full-stack app in under 4 hours. Per Team.' },
-  { id: 'event-3', title: 'PROJECT EXPO', price: '₹100', tag: 'SHOWCASE', desc: 'Showcase your final-year or innovation project. Per Team.' },
-  { id: 'event-4', title: 'PHOTOGRAPHY CHALLENGE', price: '₹50', tag: 'CREATIVE', desc: 'Capture the moment. Best shot wins.' },
-  { id: 'event-7', title: 'DIGITAL PING PONG', price: '₹50', tag: 'GAMING', desc: 'Classic game, digital twist. Fast reflexes required.' },
-  { id: 'event-8', title: 'SCARY HOUSE', price: '₹50', tag: 'EXPERIENCE', desc: 'Navigate the haunted maze if you dare.' },
-  { id: 'event-9', title: 'MINI GOLF', price: '₹50', tag: 'CASUAL', desc: 'Chill, compete, enjoy the course.' },
-  { id: 'event-10', title: 'EXTRACTION', price: '₹50', tag: 'PUZZLE', desc: 'Escape room-style challenge. Think fast.' },
-  { id: 'event-11', title: 'BINARY BOUNTY HUNT', price: '₹50', tag: 'TECHNICAL', desc: 'Decode. Hunt. Win. A binary puzzle scavenger hunt.' },
-  { id: 'event-14', title: 'NERF TAG', price: '₹225', tag: 'ACTION', desc: 'Team-based NERF battle arena. Best team wins.' },
-  { id: 'event-15', title: 'AGENTS TALE', price: '₹100', tag: 'STRATEGY', desc: 'Strategic multiplayer scenario game. Team of 2.' },
-  { id: 'event-16', title: 'VR ZONE', price: '₹50', tag: 'IMMERSIVE', desc: 'Dive into virtual reality experiences.' },
-  { id: 'event-17', title: 'WHISPER CHALLENGE', price: '₹30', tag: 'FUN', desc: 'The classic broken telephone with a tech spin.' },
-  { id: 'event-18', title: 'GEO GUESSR', price: '₹50', tag: 'KNOWLEDGE', desc: 'How well do you know the world? Find out.' },
-  { id: 'event-19', title: 'PIXEL ART', price: '₹30', tag: 'CREATIVE', desc: 'Create stunning pixel art under time pressure.' },
+  { id: 'event-1', title: 'PAPER AND POSTER PRESENTATION', price: '₹100', tag: 'RESEARCH', desc: 'Present cutting-edge research to expert panelists.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' }},
+  { id: 'event-2', title: 'WEBATHON', price: '₹150', tag: 'WEB DEV', desc: 'Build a full-stack app in under 4 hours. Per Team.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-3', title: 'PROJECT EXPO', price: '₹100', tag: 'SHOWCASE', desc: 'Showcase your final-year or innovation project. Per Team.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-4', title: 'PHOTOGRAPHY CHALLENGE', price: '₹50', tag: 'CREATIVE', desc: 'Capture the moment. Best shot wins.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-5', title: 'DIGITAL PING PONG', price: '₹50', tag: 'GAMING', desc: 'Classic game, digital twist. Fast reflexes required.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-6', title: 'SCARY HOUSE', price: '₹50', tag: 'EXPERIENCE', desc: 'Navigate the haunted maze if you dare.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-7', title: 'MINI GOLF', price: '₹50', tag: 'CASUAL', desc: 'Chill, compete, enjoy the course.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-8', title: 'EXTRACTION', price: '₹50', tag: 'PUZZLE', desc: 'Escape room-style challenge. Think fast.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-9', title: 'BINARY BOUNTY HUNT', price: '₹50', tag: 'TECHNICAL', desc: 'Decode. Hunt. Win. A binary puzzle scavenger hunt.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-10', title: 'NERF TAG', price: '₹225', tag: 'ACTION', desc: 'Team-based NERF battle arena. Best team wins.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-11', title: 'AGENTS TALE', price: '₹100', tag: 'STRATEGY', desc: 'Strategic multiplayer scenario game. Team of 2.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-12', title: 'VR ZONE', price: '₹50', tag: 'IMMERSIVE', desc: 'Dive into virtual reality experiences.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-13', title: 'WHISPER CHALLENGE', price: '₹30', tag: 'FUN', desc: 'The classic broken telephone with a tech spin.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-14', title: 'GEO GUESSR', price: '₹50', tag: 'KNOWLEDGE', desc: 'How well do you know the world? Find out.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
+  { id: 'event-15', title: 'PIXEL ART', price: '₹30', tag: 'CREATIVE', desc: 'Create stunning pixel art under time pressure.', coord1: { name: 'Co-Ordinator 1', phone: '+91 9xxxxxxxxx' }, coord2: { name: 'Co-Ordinator 2', phone: '+91 8xxxxxxxxx' } },
 ];
 
 export default function Events() {
@@ -344,131 +344,135 @@ export default function Events() {
             gap: '1.5rem',
           }}>
             {ALL_EVENTS.map((event) => (
-              <div 
-                key={event.id} 
-                style={{
-                  // The core Glassmorphism properties
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  
-                  borderRadius: '24px',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1.5rem',
-                  transition: 'all 0.5s cubic-bezier(0.23, 1, 0.32, 1)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.8)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)';
-                  e.currentTarget.style.transform = 'scale(1.02) translateY(-5px)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 214, 0, 0.4)';
-                  e.currentTarget.style.boxShadow = '0 15px 45px rgba(255, 214, 0, 0.1)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                  e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                  e.currentTarget.style.boxShadow = '0 8px 32px 0 rgba(0, 0, 0, 0.8)';
-                }}
-              >
-                {/* Glossy Reflection Overlay */}
-                <div style={{
-                  position: 'absolute',
-                  top: '-50%',
-                  left: '-50%',
-                  width: '200%',
-                  height: '200%',
-                  background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent)',
-                  transform: 'rotate(45deg)',
-                  pointerEvents: 'none',
-                }} />
+  <div 
+    key={event.id} 
+    style={{
+      background: 'rgba(255, 255, 255, 0.03)',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      borderRadius: '24px',
+      padding: '2rem',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1.25rem',
+      transition: 'all 0.5s cubic-bezier(0.23, 1, 0.32, 1)',
+      position: 'relative',
+      overflow: 'hidden',
+      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.8)',
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)';
+      e.currentTarget.style.transform = 'scale(1.02) translateY(-5px)';
+      e.currentTarget.style.borderColor = 'rgba(255, 214, 0, 0.4)';
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+      e.currentTarget.style.transform = 'scale(1) translateY(0)';
+      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+    }}
+  >
+    {/* Header: Tag and ID */}
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <span style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.65rem',
+        background: 'rgba(255, 214, 0, 0.1)',
+        color: '#FFD600',
+        padding: '4px 12px',
+        borderRadius: '100px',
+        border: '1px solid rgba(255, 214, 0, 0.2)',
+        letterSpacing: '0.1em'
+      }}>{event.tag}</span>
+      <span style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)', fontSize: '0.8rem' }}>
+        #{event.id.split('-')[1].padStart(2, '0')}
+      </span>
+    </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                  <span style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.65rem',
-                    background: 'rgba(255, 214, 0, 0.1)',
-                    color: '#FFD600',
-                    padding: '4px 12px',
-                    borderRadius: '100px',
-                    border: '1px solid rgba(255, 214, 0, 0.2)',
-                    letterSpacing: '0.1em'
-                  }}>{event.tag}</span>
-                  
-                  <span style={{ 
-                    fontFamily: 'var(--font-mono)', 
-                    color: 'rgba(255,255,255,0.2)',
-                    fontSize: '0.8rem' 
-                  }}>
-                    #{event.id.split('-')[1].padStart(2, '0')}
-                  </span>
-                </div>
+    {/* Title and Description */}
+    <div>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 700, color: '#FFF', marginBottom: '0.5rem' }}>
+        {event.title}
+      </h3>
+      <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.5)', lineHeight: 1.5 }}>
+        {event.desc}
+      </p>
+    </div>
 
-                <div>
-                  <h3 style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '1.3rem',
-                    fontWeight: 700,
-                    color: '#FFF',
-                    marginBottom: '0.75rem',
-                    lineHeight: 1.2
-                  }}>{event.title}</h3>
-                  
-                  <p style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '0.85rem',
-                    color: 'rgba(255, 255, 255, 0.5)',
-                    lineHeight: 1.6,
-                    minHeight: '3.2rem'
-                  }}>{event.desc}</p>
-                </div>
+    {/* ─── NEW: Coordinator Module ─── */}
+    <div style={{
+      padding: '1rem',
+      background: 'rgba(255, 255, 255, 0.02)',
+      borderRadius: '12px',
+      border: '1px solid rgba(255, 255, 255, 0.05)'
+    }}>
+      
+      {/* Coord 1 */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+        <span style={{ color: '#FFF', fontSize: '0.75rem', fontWeight: 500 }}>{event.coord1?.name}</span>
+        <a href={`tel:${event.coord1?.phone}`} style={{ 
+          color: '#FFD600', 
+          fontFamily: 'var(--font-mono)', 
+          fontSize: '0.7rem', 
+          textDecoration: 'none',
+          borderBottom: '1px dotted #FFD600'
+        }}>
+          {event.coord1?.phone}
+        </a>
+      </div>
 
-                <div style={{
-                  marginTop: 'auto',
-                  paddingTop: '1.5rem',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>PASS</span>
-                    <span style={{ 
-                      fontFamily: 'var(--font-mono)', 
-                      fontSize: '1.1rem', 
-                      fontWeight: 700, 
-                      color: '#FFD600' 
-                    }}>{event.price}</span>
-                  </div>
-                  
-<Link 
-  to={`/register?event=${encodeURIComponent(event.title)}`}
-  style={{
-    background: 'white',
-    color: 'black',
-    border: 'none',
-    borderRadius: '12px',
-    padding: '8px 16px',
-    fontFamily: 'var(--font-mono)',
-    fontSize: '0.75rem',
-    fontWeight: 800,
-    cursor: 'pointer',
-    textDecoration: 'none',
-    transition: 'all 0.3s ease'
-  }}
-  onMouseEnter={e => e.currentTarget.style.background = '#FFD600'}
-  onMouseLeave={e => e.currentTarget.style.background = 'white'}
->
-  REGISTER
-</Link>
-                </div>
-              </div>
-            ))}
+      {/* Coord 2 */}
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <span style={{ color: '#FFF', fontSize: '0.75rem', fontWeight: 500 }}>{event.coord2?.name}</span>
+        <a href={`tel:${event.coord2?.phone}`} style={{ 
+          color: '#FFD600', 
+          fontFamily: 'var(--font-mono)', 
+          fontSize: '0.7rem', 
+          textDecoration: 'none',
+          borderBottom: '1px dotted #FFD600'
+        }}>
+          {event.coord2?.phone}
+        </a>
+      </div>
+    </div>
+
+    {/* Footer: Price and Register Link */}
+    <div style={{
+      marginTop: 'auto',
+      paddingTop: '1rem',
+      borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>PASS</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 700, color: '#FFD600' }}>{event.price}</span>
+      </div>
+      
+      <Link 
+        to={`/register?event=${encodeURIComponent(event.title)}`}
+        style={{
+          background: 'white',
+          color: 'black',
+          border: 'none',
+          borderRadius: '12px',
+          padding: '8px 16px',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.75rem',
+          fontWeight: 800,
+          cursor: 'pointer',
+          textDecoration: 'none',
+          transition: 'all 0.3s ease'
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = '#FFD600'}
+        onMouseLeave={e => e.currentTarget.style.background = 'white'}
+      >
+        REGISTER
+      </Link>
+    </div>
+  </div>
+))}
           </div>
         </div>
       </section>
