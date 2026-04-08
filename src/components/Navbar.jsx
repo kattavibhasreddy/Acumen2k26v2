@@ -57,7 +57,7 @@ export default function Navbar() {
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
           }}>
-            ACUMEN IT
+            ACUMEN IT 2026
           </span>
         </Link>
 
@@ -71,7 +71,6 @@ export default function Navbar() {
             { label: 'Home', to: '/' },
             { label: 'Events', to: '/events' },
             { label: 'Register', to: '/register' },
-            { label: 'Team', to: '/team' },
           ].map(item => (
             <NavLink
               key={item.to}
@@ -90,15 +89,6 @@ export default function Navbar() {
           gap: '1.5rem',
           flexShrink: 0,
         }}>
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.7rem',
-            color: '#888',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-          }}>
-            APRIL 16
-          </span>
           <Link to="/register" style={{
             background: '#FFD600',
             color: '#000',

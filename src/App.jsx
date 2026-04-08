@@ -14,7 +14,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         {/* Alias routes for nav links */}
         <Route path="/schedule" element={<Events />} />
-        <Route path="/team" element={<Home />} />
       </Routes>
     </div>
   )

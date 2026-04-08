@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const EVENTS = [
   { id: 1, title: 'Opening Ceremony', subtitle: 'April 16 | 09:00 AM', tag: 'CEREMONY', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80' },
@@ -86,16 +87,6 @@ export default function Events() {
         borderBottom: '1px solid #1a1a1a',
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            color: '#FFD600',
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '1.5rem',
-          }}>[07] // SHOWCASE</span>
 
           <h1 style={{
             fontFamily: 'var(--font-display)',
@@ -117,7 +108,7 @@ export default function Events() {
             textTransform: 'uppercase',
             marginBottom: '4rem',
           }}>
-            SWIPE TO EXPLORE · CLICK TO FOCUS
+            SWIPE TO EXPLORE
           </p>
         </div>
 
@@ -308,100 +299,174 @@ export default function Events() {
       </section>
 
       {/* ─── All Events Grid ─── */}
+{/* ─── All Events Grid: Glassmorphic Edition ─── */}
       <section style={{
         padding: 'clamp(5rem, 10vw, 10rem) clamp(1.5rem, 5vw, 5rem)',
-        borderTop: '1px solid #1a1a1a',
+        position: 'relative',
+        backgroundColor: '#050505',
+        // Mesh gradient background to make the glass blur visible
+        backgroundImage: `
+          radial-gradient(at 0% 0%, rgba(255, 214, 0, 0.05) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(255, 214, 0, 0.05) 0px, transparent 50%)
+        `,
+        overflow: 'hidden',
       }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            color: '#FFD600',
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '1.5rem',
-          }}>[08] // ALL EVENTS</span>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
-          <h2 style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 700,
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
-            textTransform: 'uppercase',
-            marginBottom: '1rem',
-          }}>
-            EVERY EVENT.<br />EVERY CHALLENGE.
-          </h2>
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.8rem',
-            color: '#888',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            marginBottom: '4rem',
-          }}>15 EVENTS. PICK YOUR BATTLES.</p>
+          <div style={{ marginBottom: '4rem' }}>
+            <h2 style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 700,
+              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+              textTransform: 'uppercase',
+              color: '#F5F5F0',
+              marginBottom: '1rem',
+            }}>
+              EVERY EVENT.<br />EVERY CHALLENGE.
+            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ height: '2px', width: '40px', background: '#FFD600' }}></div>
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.8rem',
+                color: '#888',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+              }}>15 EVENTS. PICK YOUR BATTLES.</p>
+            </div>
+          </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '1px',
-            background: '#1a1a1a',
-            border: '1px solid #1a1a1a',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '1.5rem',
           }}>
-            {ALL_EVENTS.map((event, i) => (
-              <div key={event.id} style={{
-                background: '#0A0A0A',
-                padding: '1.75rem 2rem',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: '1rem',
-                transition: 'background 0.2s ease',
-                cursor: 'default',
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = '#111'}
-              onMouseLeave={e => e.currentTarget.style.background = '#0A0A0A'}
+            {ALL_EVENTS.map((event) => (
+              <div 
+                key={event.id} 
+                style={{
+                  // The core Glassmorphism properties
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  
+                  borderRadius: '24px',
+                  padding: '2rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.5rem',
+                  transition: 'all 0.5s cubic-bezier(0.23, 1, 0.32, 1)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.8)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.07)';
+                  e.currentTarget.style.transform = 'scale(1.02) translateY(-5px)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 214, 0, 0.4)';
+                  e.currentTarget.style.boxShadow = '0 15px 45px rgba(255, 214, 0, 0.1)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                  e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.boxShadow = '0 8px 32px 0 rgba(0, 0, 0, 0.8)';
+                }}
               >
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <span style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.6rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.1em',
-                      color: '#FFD600',
-                      border: '1px solid #332200',
-                      padding: '1px 6px',
-                      textTransform: 'uppercase',
-                    }}>{event.tag}</span>
-                  </div>
+                {/* Glossy Reflection Overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: '-50%',
+                  left: '-50%',
+                  width: '200%',
+                  height: '200%',
+                  background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent)',
+                  transform: 'rotate(45deg)',
+                  pointerEvents: 'none',
+                }} />
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <span style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.65rem',
+                    background: 'rgba(255, 214, 0, 0.1)',
+                    color: '#FFD600',
+                    padding: '4px 12px',
+                    borderRadius: '100px',
+                    border: '1px solid rgba(255, 214, 0, 0.2)',
+                    letterSpacing: '0.1em'
+                  }}>{event.tag}</span>
+                  
+                  <span style={{ 
+                    fontFamily: 'var(--font-mono)', 
+                    color: 'rgba(255,255,255,0.2)',
+                    fontSize: '0.8rem' 
+                  }}>
+                    #{event.id.split('-')[1].padStart(2, '0')}
+                  </span>
+                </div>
+
+                <div>
                   <h3 style={{
-                    fontFamily: 'var(--font-mono)',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.3rem',
                     fontWeight: 700,
-                    fontSize: '0.85rem',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                    color: '#F5F5F0',
-                    marginBottom: '0.25rem',
+                    color: '#FFF',
+                    marginBottom: '0.75rem',
+                    lineHeight: 1.2
                   }}>{event.title}</h3>
+                  
                   <p style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.7rem',
-                    color: '#555',
-                    letterSpacing: '0.02em',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.85rem',
+                    color: 'rgba(255, 255, 255, 0.5)',
+                    lineHeight: 1.6,
+                    minHeight: '3.2rem'
                   }}>{event.desc}</p>
                 </div>
+
                 <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 700,
-                  fontSize: '1rem',
-                  color: '#888',
-                  flexShrink: 0,
-                  letterSpacing: '0.02em',
-                }}>{event.price}</div>
+                  marginTop: 'auto',
+                  paddingTop: '1.5rem',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>PASS</span>
+                    <span style={{ 
+                      fontFamily: 'var(--font-mono)', 
+                      fontSize: '1.1rem', 
+                      fontWeight: 700, 
+                      color: '#FFD600' 
+                    }}>{event.price}</span>
+                  </div>
+                  
+<Link 
+  to={`/register?event=${encodeURIComponent(event.title)}`}
+  style={{
+    background: 'white',
+    color: 'black',
+    border: 'none',
+    borderRadius: '12px',
+    padding: '8px 16px',
+    fontFamily: 'var(--font-mono)',
+    fontSize: '0.75rem',
+    fontWeight: 800,
+    cursor: 'pointer',
+    textDecoration: 'none',
+    transition: 'all 0.3s ease'
+  }}
+  onMouseEnter={e => e.currentTarget.style.background = '#FFD600'}
+  onMouseLeave={e => e.currentTarget.style.background = 'white'}
+>
+  REGISTER
+</Link>
+                </div>
               </div>
             ))}
           </div>
