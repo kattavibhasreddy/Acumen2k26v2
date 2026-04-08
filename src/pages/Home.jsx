@@ -21,6 +21,12 @@ const coordinators = [
   { name: 'Bhavana', role: 'Coordinator', tag: 'COORD', image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=533&fit=crop' },
 ]
 
+const sponsors = [
+  { id: 'TECH_01', name: 'Nvidia', image: 'https://www.acumenit.in/assets/sponsor2-D_vlKJAr.webp' },
+  { id: 'CLOUD_02', name: 'Google Cloud', image: 'https://www.acumenit.in/assets/image2-BwihIBln.webp' },
+  { id: 'SEC_03', name: 'CrowdStrike', image: 'https://www.acumenit.in/assets/image-10PnZB6d.webp' },
+]
+
 const pastFestImages = [
   { image: 'https://picsum.photos/seed/hackathon/900/900', link: '/events', title: 'HACKATHONS', description: '24-hour intense coding sprints and development.' },
   { image: 'https://picsum.photos/seed/expo/900/900', link: '/events', title: 'TECH EXPO', description: 'Showcasing brilliant student hardware and software.' },
@@ -155,6 +161,105 @@ const TeamCard = ({ person }) => (
         }}>
           {person.role}
         </p>
+      </div>
+    </div>
+  </div>
+);
+
+const SponsorCard = ({ sponsor, tier }) => (
+  <div 
+    style={{
+      background: 'rgba(255, 255, 255, 0.02)',
+      border: '1px solid #1a1a1a',
+      padding: '2rem',
+      position: 'relative',
+      transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+      cursor: 'pointer',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      minHeight: '220px'
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.borderColor = '#FFD600';
+      e.currentTarget.style.background = 'rgba(255, 214, 0, 0.02)';
+      e.currentTarget.style.transform = 'translateY(-5px)';
+      e.currentTarget.querySelector('.sponsor-logo').style.transform = 'scale(1.1)';
+      e.currentTarget.querySelector('.corner-accent').style.opacity = '1';
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.borderColor = '#1a1a1a';
+      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.querySelector('.sponsor-logo').style.transform = 'scale(1)';
+      e.currentTarget.querySelector('.corner-accent').style.opacity = '0';
+    }}
+  >
+    {/* Technical Corner Accent */}
+    <div className="corner-accent" style={{
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      width: '20px',
+      height: '20px',
+      borderTop: '2px solid #FFD600',
+      borderRight: '2px solid #FFD600',
+      opacity: 0,
+      transition: 'opacity 0.3s'
+    }} />
+
+    {/* Tier Tag */}
+    <div style={{
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      background: tier === 'PLATINUM' ? '#FFD600' : '#1a1a1a',
+      color: tier === 'PLATINUM' ? '#000' : '#888',
+      fontFamily: 'var(--font-mono)',
+      fontSize: '0.55rem',
+      fontWeight: 900,
+      padding: '4px 10px',
+      textTransform: 'uppercase',
+      letterSpacing: '0.15em'
+    }}>
+      {tier} // PARTNER
+    </div>
+
+    {/* Logo Container */}
+    <div style={{ width: '100%', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img 
+        className="sponsor-logo"
+        src={sponsor.image} 
+        alt="Sponsor Logo" 
+        style={{ 
+          maxWidth: '80%', 
+          maxHeight: '100%', 
+          objectFit: 'contain',
+          transition: 'transform 0.5s ease',
+        }} 
+      />
+    </div>
+
+    {/* Bottom Metadata Bar */}
+    <div style={{ 
+      position: 'absolute',
+      bottom: '10px',
+      left: '15px',
+      right: '15px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      borderTop: '1px solid rgba(255,255,255,0.05)',
+      paddingTop: '8px'
+    }}>
+      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', color: '#333' }}>
+        SYS_PRTNR_ID_{sponsor.id}
+      </span>
+      <div style={{ display: 'flex', gap: '4px' }}>
+         <div style={{ width: '3px', height: '3px', background: '#FFD600', borderRadius: '50%' }} />
+         <div style={{ width: '3px', height: '3px', background: '#333', borderRadius: '50%' }} />
       </div>
     </div>
   </div>
@@ -322,7 +427,7 @@ export default function Home() {
     paddingBottom: '1rem' 
   }}>
     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', textTransform: 'uppercase', color: '#FFF' }}>
-      Student Coordinators
+      STUDENT COORDINATORS
     </h2>
   </div>
 
@@ -337,7 +442,9 @@ export default function Home() {
   </div>
 </div>
 
-{/* Sponsors Section */}
+{/* ══════════════════════════════════════════
+    [SECTION] SPONSORS
+══════════════════════════════════════════ */}
 <div style={{ marginBottom: '6rem' }}>
   <div style={{ 
     display: 'flex', 
@@ -348,41 +455,76 @@ export default function Home() {
     paddingBottom: '1rem' 
   }}>
     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', textTransform: 'uppercase', color: '#FFF' }}>
-      Sponsors
+      SPONSORS
     </h2>
   </div>
 
   <div style={{
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    // Forces exactly 3 columns on desktop, 1 on mobile
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gap: '1.5rem'
   }}>
-    {[1, 2, 3].map((num) => (
-      <div key={num} style={{
-        background: 'rgba(255, 255, 255, 0.02)',
-        border: '1px solid #1a1a1a',
-        padding: '3rem 2rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'all 0.3s ease',
-      }}
-      onMouseEnter={e => e.currentTarget.style.borderColor = '#FFD600'}
-      onMouseLeave={e => e.currentTarget.style.borderColor = '#1a1a1a'}
+    {sponsors.map((sp) => (
+      <div 
+        key={sp.id} 
+        style={{
+          background: 'rgba(255, 255, 255, 0.02)',
+          border: '1px solid #1a1a1a',
+          padding: '3rem 2rem',
+          position: 'relative',
+          transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+          cursor: 'pointer',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          minHeight: '220px'
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.borderColor = '#FFD600';
+          e.currentTarget.style.background = 'rgba(255, 214, 0, 0.02)';
+          e.currentTarget.style.transform = 'translateY(-5px)';
+          e.currentTarget.querySelector('.sponsor-logo').style.filter = 'brightness(1.2)';
+          e.currentTarget.querySelector('.corner-accent').style.opacity = '1';
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.borderColor = '#1a1a1a';
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.querySelector('.sponsor-logo').style.filter = 'brightness(0.8)';
+          e.currentTarget.querySelector('.corner-accent').style.opacity = '0';
+        }}
       >
-        <img 
-          src={`https://picsum.photos/seed/sp${num}/400/200`} 
-          alt={`Sponsor ${num}`} 
-          style={{ 
-            maxWidth: '100%', 
-            height: 'auto', 
-            filter: 'brightness(1)', 
-            opacity: 1,
-            transition: 'all 0.4s ease' 
-          }}
-          onMouseEnter={e => { e.target.style.filter = 'none'; e.target.style.opacity = '1'; }}
-          onMouseLeave={e => { e.target.style.filter = 'brightness(1)'; e.target.style.opacity = '1'; }}
-        />
+        {/* Technical Corner Accent */}
+        <div className="corner-accent" style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '20px',
+          height: '20px',
+          borderTop: '2px solid #FFD600',
+          borderRight: '2px solid #FFD600',
+          opacity: 0,
+          transition: 'opacity 0.3s'
+        }} />
+
+        {/* Image Container */}
+        <div style={{ width: '100%', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img 
+            className="sponsor-logo"
+            src={sp.image} 
+            alt={sp.name} 
+            style={{ 
+              maxWidth: '125%', 
+              maxHeight: '200%', 
+              objectFit: 'contain',
+              filter: 'brightness(1)',
+              transition: 'all 0.4s ease' 
+            }} 
+          />
+        </div>
       </div>
     ))}
   </div>
