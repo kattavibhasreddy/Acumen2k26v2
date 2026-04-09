@@ -553,7 +553,7 @@ export default function Register() {
                     onBlur={e => e.target.style.borderColor = errors.paymentScreenshotLink ? '#FF6B35' : '#3D3D3D'}
                   />
                   <p style={{ fontSize: '0.6rem', color: '#444', marginTop: '0.5rem', fontFamily: 'var(--font-mono)' }}>
-            // Ensure link is public (Anyone with the link can view)
+                    Ensure link is public (Anyone with the link can view)
                   </p>
                 </FormField>
               </div>

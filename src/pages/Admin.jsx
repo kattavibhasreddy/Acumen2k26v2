@@ -143,7 +143,7 @@ export default function Admin() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
           <div>
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', textTransform: 'uppercase' }}>
-              REGISTRATION_DATABASE
+              REGISTRATION DATABASE
             </h1>
             <p style={{ color: '#FFD600', fontSize: '0.8rem' }}>
               SHOWING: {filteredRegistrations.length} / TOTAL: {registrations.length}
@@ -186,7 +186,7 @@ export default function Admin() {
           border: '1px solid #1a1a1a'
         }}>
           <div style={{ flex: 2, minWidth: '280px' }}>
-            <label style={{ fontSize: '0.6rem', color: '#555', display: 'block', marginBottom: '0.5rem' }}>SEARCH_PARTICIPANTS (NAME/ROLL/COLLEGE)</label>
+            <label style={{ fontSize: '0.6rem', color: '#555', display: 'block', marginBottom: '0.5rem' }}>SEARCH PARTICIPANTS (NAME/ROLL/COLLEGE)</label>
             <input
               type="text"
               placeholder="TYPE TO SEARCH..."
@@ -204,7 +204,7 @@ export default function Admin() {
             />
           </div>
           <div style={{ flex: 1, minWidth: '200px' }}>
-            <label style={{ fontSize: '0.6rem', color: '#555', display: 'block', marginBottom: '0.5rem' }}>FILTER_BY_EVENT</label>
+            <label style={{ fontSize: '0.6rem', color: '#555', display: 'block', marginBottom: '0.5rem' }}>FILTER BY EVENT</label>
             <select
               value={filterEvent}
               onChange={e => setFilterEvent(e.target.value)}
@@ -227,7 +227,7 @@ export default function Admin() {
         </div>
 
         {loading ? (
-          <p> LOADING_DATA...</p>
+          <p> LOADING DATA...</p>
         ) : error ? (
           <p style={{ color: '#FF6B35' }}> ERROR: {error}</p>
         ) : (
@@ -277,7 +277,7 @@ export default function Admin() {
                         rel="noopener noreferrer"
                         style={{ color: '#FFD600', fontSize: '0.7rem', textDecoration: 'none', borderBottom: '1px dotted #FFD600' }}
                       >
-                        VIEW_LINK
+                        VIEW LINK
                       </a>
                     </td>
                   </tr>

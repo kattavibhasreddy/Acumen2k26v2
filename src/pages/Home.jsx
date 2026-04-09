@@ -20,7 +20,7 @@ const coordinators = [
   { name: 'Saakshi', role: 'Overall Coordinator - Head of Marketing', image: '/Acumen Coordinators/Saakshi.jpg' },
   { name: 'Aashritha', role: 'Overall Coordinator - Head of Marketing', image: '/Acumen Coordinators/Aashritha.jpg' },
   { name: 'Goutham Siddharth', role: 'Creative Head', image: '/Acumen Coordinators/Goutham.jpg' },
-  { name: 'Harika', role: 'Overall Coordinator', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=533&fit=crop' },
+  { name: 'Harika', role: 'Overall Coordinator', image: '/Acumen Coordinators/Harika.jpg' },
   { name: 'Nithya', role: 'Overall Coordinator', image: '/Acumen Coordinators/Nithya.jpg' },
   { name: 'Jai Chandra', role: 'Technology Lead', image: '/Acumen Coordinators/Jai Chandra.jpg' },
   { name: 'Sirivennela', role: 'Design Lead', image: '/Acumen Coordinators/Sirivennela.jpg' },
