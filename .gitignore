@@ -31,6 +31,4 @@ server/.env
 # Public media assets (served via ImageKit CDN)
 public/Acumen Coordinators/
 public/Acumen gallery/
-public/faculty/
 public/Posters/
-public/Sponsors/
